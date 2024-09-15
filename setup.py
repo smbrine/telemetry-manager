@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="telemetry-manager",
-    version="1.1.4",
+    version="1.1.5",
     author="Nick Smirnov",
     author_email="smbrine@yandex.ru",
     description="A straighthrough manager for python opentelemetry exporter",

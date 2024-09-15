@@ -36,7 +36,7 @@ class Resource:
         self.version = version
         self.image = image
         self.host = (
-            host or httpx.get("ifconfig.me").text
+            host or httpx.get("https://ifconfig.me").text
             if request_host_ip
             else "localhost"
         )
