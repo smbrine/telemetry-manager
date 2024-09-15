@@ -29,8 +29,6 @@ class MetricManager(BaseManager):
     ):
         super().__init__(otlp_endpoint, resource, exporter_settings)
 
-        exporter_settings = exporter_settings or {}
-
         # Initialize the exporter
         if settings.TM_METRIC_IS_GRPC_EXPORTER_AVAILABLE:
             from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import (
@@ -84,7 +82,7 @@ class MetricManager(BaseManager):
         bytes_recv = psutil.net_io_counters().bytes_recv
         return [Observation(value=bytes_recv)]
 
-    def _register_gauges(self, meter: Meter):
+    def register_gauges(self, meter: Meter):
         self.cpu_usage_gauge = meter.create_observable_gauge(
             name="system_cpu_usage_percent",
             callbacks=[self._cpu_usage_callback],
