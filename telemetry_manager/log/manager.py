@@ -1,7 +1,9 @@
+import logging
 import typing as t
 
 import opentelemetry
 from opentelemetry._logs import LoggerProvider
+from opentelemetry.sdk._logs import LoggingHandler
 from opentelemetry.sdk._logs.export import (
     BatchLogRecordProcessor,
     ConsoleLogExporter,
@@ -62,4 +64,10 @@ class LogManager(BaseManager):
 
         self.provider.add_log_record_processor(
             BatchLogRecordProcessor(self.exporter)
+        )
+
+    def get_handler(self):
+        return LoggingHandler(
+            level=logging.DEBUG,
+            logger_provider=self.provider,
         )
