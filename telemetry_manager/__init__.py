@@ -28,31 +28,33 @@ _OPTIONAL_DEPS = [
         "settings_var": "TM_TRACE_IS_GRPC_EXPORTER_AVAILABLE",
     },
     {
-        "beautiful_name": "HTTP traces exporter",
-        "module_name": "opentelemetry.exporter.otlp.proto.http.trace_exporter",
-        "settings_var": "TM_TRACE_IS_HTTP_EXPORTER_AVAILABLE",
-    },
-    {
         "beautiful_name": "gRPC logs exporter",
         "module_name": "opentelemetry.exporter.otlp.proto.grpc._log_exporter",
         "settings_var": "TM_LOG_IS_GRPC_EXPORTER_AVAILABLE",
-    },
-    {
-        "beautiful_name": "HTTP logs exporter",
-        "module_name": "opentelemetry.exporter.otlp.proto.http._log_exporter",
-        "settings_var": "TM_LOG_IS_HTTP_EXPORTER_AVAILABLE",
     },
     {
         "beautiful_name": "gRPC metrics exporter",
         "module_name": "opentelemetry.exporter.otlp.proto.grpc.metric_exporter",
         "settings_var": "TM_METRIC_IS_GRPC_EXPORTER_AVAILABLE",
     },
-    {
-        "beautiful_name": "HTTP metrics exporter",
-        "module_name": "opentelemetry.exporter.otlp.proto.http.metric_exporter",
-        "settings_var": "TM_METRIC_IS_HTTP_EXPORTER_AVAILABLE",
-    },
+    # {
+    #     "beautiful_name": "HTTP traces exporter",
+    #     "module_name": "opentelemetry.exporter.otlp.proto.http.trace_exporter",
+    #     "settings_var": "TM_TRACE_IS_HTTP_EXPORTER_AVAILABLE",
+    # },
+    # {
+    #     "beautiful_name": "HTTP logs exporter",
+    #     "module_name": "opentelemetry.exporter.otlp.proto.http._log_exporter",
+    #     "settings_var": "TM_LOG_IS_HTTP_EXPORTER_AVAILABLE",
+    # },
+    # {
+    #     "beautiful_name": "HTTP metrics exporter",
+    #     "module_name": "opentelemetry.exporter.otlp.proto.http.metric_exporter",
+    #     "settings_var": "TM_METRIC_IS_HTTP_EXPORTER_AVAILABLE",
+    # },
 ]
+
+
 if not settings.TM_CHECKED_IMPORTS:
     for dep in _OPTIONAL_DEPS:
         logger.debug(
